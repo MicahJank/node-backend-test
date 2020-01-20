@@ -13,7 +13,7 @@ router.use('/login', loginRouter);
 
 
 router.get('/', checkAuth, (req, res) => {
-    res.send('<h1>Api is running.</h1>');
+    res.send('Api is running.');
 });
 
 module.exports = router;
