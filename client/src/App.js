@@ -12,11 +12,13 @@ function App() {
   const [data, setData] = useState('No data yet...');
   const [auth, setAuth] = useState('No Auth Status...');
 
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged(authUser => {
-  //     authUser ? setAuth(authUser) : setAuth(null);
-  //   })
-  // }, [])
+  // this useEffect is keeping my auth state updated each time the component loads...
+  // even if the page is refreshed it will still say the user is logged in which is what we want...a user doesnt get logged out simply because they refresh a page!
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(authUser => {
+      authUser ? setAuth('Logged in') : setAuth('No Auth Status...');
+    })
+  }, [])
 
   const handleSendRequest = (e) => {
     e.preventDefault();
