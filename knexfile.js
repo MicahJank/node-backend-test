@@ -7,7 +7,7 @@ module.exports = {
     connection: {
       host: 'localhost',
       user: 'postgres',
-      password: 'jankeblofu92',
+      password: process.env.PGPASSWORD,
       database: 'node-backend-test'
     },
     useNullAsDefault: true,
